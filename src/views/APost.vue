@@ -20,16 +20,14 @@
 <script setup>
 import axios from "axios";
 import { ref, onMounted } from "vue";
-
-
-//รับค่าparameter -->id
 import { useRoute } from "vue-router";
 const route = useRoute()
 const id = parseInt(route.params.id)
 console.log("ID"+id.value);
 const items = ref({});
 //const url = ref("https://jsonplaceholder.typicode.com/posts");
-const url = ref("https://jsonplaceholder.typicode.com/post/"+route.params.id);
+//const url = ref("https://jsonplaceholder.typicode.com/post/"+route.params.id);
+const url = ref("https://jsonplaceholder.typicode.com/post/"+id.value);
 function fetchPosts() {
  axios
  .get(url.value)
